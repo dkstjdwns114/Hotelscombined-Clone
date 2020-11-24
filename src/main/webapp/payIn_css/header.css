@@ -1,0 +1,28 @@
+/*
+    공통 부분
+*/
+
+/* header */
+.header_area {width: 100%;height: 62px; box-sizing: border-box; background-color: #00aef0!important; font-family: "Brezel Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;}
+.header_area .header_container{display: flex; align-items: center;max-width:1080px; width: 1080px;   height: 100% ;padding: 0 30px; margin: 0 auto; font-size: 15px; box-sizing: border-box;}
+.header_area .header_container .header_logo {margin: 5px 0; 
+display: inline-block;}
+.header_area .header_container .header_logo a{display: block;height: 25px;}
+.header_area .header_container .header_logo img{height: 25px; width: 154px; box-sizing: border-box; }
+.header_area .header_container .header_navMenu{ font-family: "HelveticaNeue-Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+font-weight: 500; flex: 1; display: flex; flex-direction: row;  width: 100%; height: 100%; box-sizing: border-box; }
+.header_area .header_container .header_navMenu .main_navigation{margin-left: 35px; height: 100%; display: flex; flex: 3; align-items: center; justify-content: start; box-sizing: border-box}
+.header_area .header_container .header_navMenu .main_navigation li{ margin: 0 12px; height: 100%; box-sizing: border-box;  display: flex; align-items: center;}
+.header_area .header_container .header_navMenu .main_navigation li a{text-decoration: none; color: white; font-size: 14px;letter-spacing: .0330769em; line-height: 16px;  display: inline-block; vertical-align: middle;}
+.header_area .header_container .header_navMenu .main_navigation li a:hover{text-decoration: underline white;}
+.header_area .header_container .header_navMenu .main_navigation li:first-child{margin-left: 0;height: 62px; border-bottom: 2px solid white; }
+.header_area .header_container .header_navMenu .main_navigation li:first-child a{ color: white; font-weight: 600; line-height: normal; }
+.header_area .header_container .header_navMenu .login_navigation{ display: flex; align-items: center;}
+.header_area .header_container .header_navMenu .login_navigation .login{margin-left: 15px;}
+.header_area .header_container .header_navMenu .login_navigation .login a, .pickers a{text-decoration: none; color: white; font-weight: 600; font-size: 14px;}
+.header_area .header_container .header_navMenu .login_navigation .login a:hover{text-decoration: underline white;}
+.header_area .header_container .header_navMenu .pickers_navigation { height: 100%; box-sizing: border-box;}
+
+.header_area .header_container .header_navMenu .pickers_navigation .pickers{ height: 100%;display: flex; align-items: center;}
+.header_navMenu .pickers_navigation .pickers .national{height: 22px; margin: 2px 10px 0 16px; box-sizing: border-box; display: inline-block;}
+.header_navMenu .pickers_navigation .pickers .national img{width: 18px; height: 100%; display: inline-block; box-sizing: border-box;}

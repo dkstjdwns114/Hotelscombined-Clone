@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+	<resultMap type="com.model.UserDTO" id="userDTO">
+		<result property="uIdx" column="u_idx"/>
+		<result property="uId" column="u_id"/>
+		<result property="uPw" column="u_pw"/>
+		<result property="uNickname" column="u_nickname"/>
+		<result property="uType" column="u_type"/>
+		<result property="uRegdate" column="u_regdate"/>
+		<result property="uHp" column="u_hp"/>
+		<result property="uEmailagree" column="u_emailagree"/>
+		<result property="uName" column="u_name"/>
+		<result property="uMemo" column="u_adminmemo"/>
+	</resultMap>
+	<select id="userList" parameterType="map" resultMap="userDTO">
+		SELECT u_idx, u_id, u_pw, u_nickname, u_type, u_regdate, u_hp, u_emailagree, u_name, u_adminmemo FROM tb_customer
+		<if test="searchOpt == 'id'">
+			WHERE u_id LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchOpt == 'name'">
+			WHERE u_name LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchOpt == 'hp'">
+			WHERE u_hp LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		ORDER BY u_idx ASC LIMIT #{startCnt}, #{perPageCnt};
+	</select>
+	<select id="findUserByIdx" parameterType="long" resultMap="userDTO">
+		SELECT u_idx, u_id, u_pw, u_nickname, u_type, u_regdate, u_hp, u_emailagree, u_name, u_adminmemo FROM tb_customer
+		WHERE u_idx = #{idx}
+	</select>
+	<select id="cntAllUser" resultType="long" parameterType="map">
+		SELECT COUNT(u_idx) FROM tb_customer
+		<if test="searchOpt == 'id'">
+			WHERE u_id LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchOpt == 'name'">
+			WHERE u_name LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchOpt == 'hp'">
+			WHERE u_hp LIKE CONCAT('%',#{keyword},'%')
+		</if>
+	</select>
+	<select id="cntSignupToday" resultType="long">
+		SELECT COUNT(u_idx) FROM tb_customer WHERE DATE(u_regdate) = DATE(NOW())
+	</select>
+	<update id="updateUser" parameterType="map">
+		UPDATE tb_customer SET 
+		<if test="uPw != null and uPw != ''">
+			u_pw=PASSWORD(#{uPw}),
+		</if>
+		u_nickname=#{uNickname}, u_type=#{uType}, u_hp=#{uHp}, u_adminmemo=#{uMemo}
+		WHERE u_idx = #{uIdx}
+	</update>
+	<delete id="deleteUserToReservation" parameterType="map">
+		DELETE FROM tb_reservation WHERE res_useridx = #{uIdx}
+	</delete>
+	<delete id="deleteUserToReview" parameterType="map">
+		DELETE FROM tb_review WHERE r_useridx = #{uIdx}
+	</delete>
+	<delete id="deleteUserToCoupon" parameterType="map">
+		DELETE FROM tb_coupon WHERE cou_useridx = #{uIdx}
+	</delete>
+	<delete id="deleteUserToCustomer" parameterType="map">
+		DELETE FROM tb_customer WHERE u_idx=#{uIdx} AND u_id=#{uId}
+	</delete>
+</mapper>

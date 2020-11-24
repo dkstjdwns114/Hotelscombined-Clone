@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Admin">
+	<resultMap type="com.model.AdminDTO" id="adminDTO">
+		<result property="adIdx" column="ad_idx"/>
+		<result property="adId" column="ad_id"/>
+		<result property="adPw" column="ad_pw"/>
+		<result property="adRegdate" column="ad_regdate"/>
+		<result property="adEndlicense" column="ad_endlicense"/>
+		<result property="adEmail" column="ad_email"/>
+		<result property="adHp" column="ad_hp"/>
+	</resultMap>
+	<select id="login" parameterType="map" resultMap="adminDTO">
+		SELECT ad_idx, ad_id, ad_regdate, ad_endlicense, ad_email, ad_hp FROM tb_admin WHERE ad_id = #{id} AND ad_pw = PASSWORD(#{pw})
+	</select>
+	<select id="findByIdx" parameterType="long" resultMap="adminDTO">
+		SELECT ad_idx, ad_id, ad_regdate, ad_endlicense, ad_email, ad_hp FROM tb_admin WHERE ad_idx = #{idx}
+	</select>
+	<update id="updateAdmin" parameterType="map">
+		UPDATE tb_admin SET ad_pw = PASSWORD(#{pw}), ad_email=#{email}, ad_hp=#{hp} WHERE ad_idx = #{idx}
+	</update>
+</mapper>

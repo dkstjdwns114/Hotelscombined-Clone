@@ -1,0 +1,129 @@
+div {
+  margin: 0;
+  padding: 0;
+  font-family: "NanumGothic", "Gulim", "Malgun Gothic", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75em;
+  font-family: "NanumGothic", "Gulim", "Malgun Gothic", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
+}
+.new_win #win_title {
+  margin: 0 0 20px;
+  padding: 20px;
+  border-top: 3px solid #333;
+  border-bottom: 1px solid #dde4e9;
+  background: #fff;
+  font-size: 1.2em;
+}
+h1 {
+  line-height: 100%;
+  font-family: "NanumGothic", "Gulim", "Malgun Gothic", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
+  border: 0;
+  display: block;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+form {
+  margin: 0;
+  padding: 0;
+  font-family: "NanumGothic", "Gulim", "Malgun Gothic", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
+  box-sizing: border-box;
+  display: block;
+}
+label {
+  vertical-align: middle;
+  cursor: default;
+}
+input[type="text"],
+input[type="password"],
+#account {
+  height: 25px;
+  line-height: 25px;
+  border: 1px solid #a8a8a8;
+  padding: 0 10px;
+  margin: 0;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 3px #e7e3e3;
+  background: #f7f7f7;
+  text-align: center;
+}
+#captcha {
+  display: inline-block;
+  position: relative;
+}
+input[type="submit"] {
+  margin-left: 37%;
+}
+#randomNum {
+  width: 87px;
+  display: inline;
+  border: 1px solid gray;
+  font-size: 2em;
+  padding: 10px;
+  margin-bottom: 12px;
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+}
+.numInput {
+  margin-top: 10px;
+}
+#numreload {
+  width: 3.8em;
+  height: 3.8em;
+  position: absolute;
+  right: 13px;
+}
+.lastwraper {
+  position: relative;
+  width: 350px;
+  height: 60px;
+  padding-bottom: 25px;
+  margin-top: 0;
+  padding-top: 0;
+}
+.shownum {
+  position: absolute;
+  margin-top: 10px;
+  width: 180px;
+  top: 7px;
+}
+.inputnum {
+  position: absolute;
+  left: 180px;
+  top: 10px;
+  width: 160px;
+}
+#writenum,
+#al {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+#writenum {
+  margin-top: 2px;
+  width: 140px;
+}
+#account {
+  width: 100%;
+  text-align-last: center;
+}
+form {
+  margin: 0 auto;
+}
+#allwraper {
+  width: 360px;
+  margin-left: 20px;
+}
+.redtext {
+  color: red;
+  font-weight: bold;
+}

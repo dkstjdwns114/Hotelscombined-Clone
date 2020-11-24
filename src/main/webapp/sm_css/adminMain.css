@@ -1,0 +1,82 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,button,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {padding: 0px; margin: 0px;}
+ul, li{
+    list-style: none;
+}
+.box{
+    width: 299px;
+    height: 145px;
+    float: left;
+    border: 1px solid rgb(233, 233, 233);
+    border-top: 2px solid #6699cc;
+    margin: 15px 10px;
+}
+
+.board-title{
+    border-bottom: solid 1px #E3E3E3;
+    font-weight: bold;
+    background-color: #f7f7f7;
+    padding: 5px 10px 5px 10px;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #202020;
+    font-size: 12px;
+}
+a:hover{
+    text-decoration: underline;
+}
+a{
+    padding-left: 10px;
+    cursor: pointer;
+}
+.userinfo{
+	float: left;
+    width: 400px;
+    height: 300px;
+    border-radius: 3px;
+    margin-left: 15px;
+    /* background-color: rgb(241, 241, 241); */
+}
+.tit_info{
+    font-weight: bold;
+    font-size: 20px;
+    background-color: white;
+    padding: 5px;
+    border-bottom: 2px solid #6699cc;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 10px;
+}
+.tit_td{
+    width: 150px;
+    height: 30px;
+    padding-left: 10px;
+/*     border-right: 2px solid #6699cc; */
+    background-color: lightgray;
+    color: black;
+}
+.container{
+	width: 850px;
+    margin: 30px auto;
+    float: none;
+    position: absolute;
+    left: 200px;
+    top: 100px; 
+}
+.under_td{
+	border-bottom: 2px dotted lightgray;
+}

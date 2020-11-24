@@ -1,0 +1,2508 @@
+@charset "utf-8"; /*utf-8 문자셋을 사용하고 있다고 명시*/
+
+/* 모든 사이트에 공통적으로 들어가야 하는 부분 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,button,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0; padding: 0;
+}
+
+ul, ol, li {  
+    list-style: none; /* 앞의 특수 문자 날림 */
+}
+
+.clear::after { /*뒤에*/
+    content: ""; /* 추가할 내용은 없음 */
+    display: block; /* 블록으로 설정 */
+    clear : both; /* 그리고 float 날림 */
+}
+
+/* 링크 색상 변함 없도록 */
+a:link { color : #444; text-decoration: none;}
+a:visited{ color : #444;text-decoration: none; }
+a:hover { color : #444; text-decoration: none;}
+a:focus { color : #444;text-decoration: none; }
+
+body {
+    height: 100%;
+    font-family: "맑은 고딕", sans-serif;
+    font-size : 16px;
+    letter-spacing: -1px;
+    color : #444;
+    /* 글자가 넘어가면 자연스럽게 다음 줄로 개행되도록*/
+    white-space: normal;
+    /* 글자가 개행으로 넘어갈 때 단어째 통으로 넘어가지 말고 글자만 넘어가게 */
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+.skipnavi {
+    /* body 기준 위치 지정 */
+    position: absolute;
+    /* 상단으로 50px 올림, 반대로 안 보일 때까지 들여쓺 */
+    left : 0; top: -50px; text-indent: -9999px;
+    /* 글자도 0px로 잡고 z-index를 가장 높게 설정 */
+    font-size : 0; width : 100%; z-index : 999;
+}
+
+/* .skipnavi 안에 있는 li의 안에 있는 a 태그에 키보드 포커스가 가 있을 때 */
+.skipnavi li a:focus, .skipnavi li a:active {
+    position: absolute;
+    left:0; top: 50px; display: block; width: 100%;
+    padding : 5px; text-align : center; text-indent: 0px;
+    font-size: 12px; font-weight: bold; background-color: #f2f2f2;
+}
+
+#wrap {
+    width : 100%;
+    box-sizing: border-box;
+}
+
+#container {
+    width : 1100px;
+    box-sizing : border-box;
+    padding : 0;
+    margin: 0 auto;
+}
+
+.header_area {
+	margin-bottom : 20px;
+}
+
+header.step1 {
+	margin-bottom : 30px;
+}
+
+
+#left{
+    width : 280px;
+    height : 100%;
+    float :left;
+    padding : 0 5px 0;
+    box-sizing: border-box;
+    margin-bottom : 100px;
+}
+
+#right {
+    box-sizing : border-box;
+    margin-left : 15px;
+    width: 800px;
+    float: left;
+    margin-bottom : 100px;
+}
+
+.clear::after{
+        content: ""; /* 추가할 내용은 없음 */
+        display: block; /* 블록으로 설정 */
+        clear : both; /* 그리고 float 날림 */
+ }
+
+.left_box{
+    background-color: rgb(235, 243, 255);
+    padding-bottom : 5px;
+    margin-bottom : 10px;
+    padding : 10px;
+    border-radius: 3px;
+}
+
+.left_box .btn_box {
+    padding : 10px 0 10px;
+}
+
+.left_box .btn_box input.reservation{
+    width : 100%;
+    background-color: rgb(0, 113, 194);
+    border: none;
+    color : white;
+    padding : 9px;
+    font-size : 15px;
+    letter-spacing: -0.02em;
+    border-radius: 2px;
+}
+
+.left_box .btn_box input.reservation:hover {
+    background-color : rgb(1, 92, 156);
+}
+
+.left_box .forAlign{
+    width: 90px;
+    height: 20px;
+    margin: 0 auto;
+    position: relative;
+}
+
+ #lowest_price {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin : 0;
+    background-image: url('../payIn_images/low_price_icon.JPG');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px;
+    top: 2px;
+}
+
+ #lowest_price + div  a {
+    text-decoration: none;
+    font-size : 0.7em;
+    letter-spacing: 0.02em;
+    position: absolute;
+    top : 5px;
+    left : 25px;
+}
+
+#filter {
+    padding : 2px;
+    background-color: rgb(255, 196, 137);
+}
+
+#filter_title{
+    background-color: rgb(254, 187, 2);
+    font-size: 14px;
+    padding : 10px;
+}
+
+#filter_title h2 {
+    margin : 7px 0 2px;
+}
+
+.filter_box {
+    width: 90%;
+    margin : 0 auto;
+    margin-bottom: 8px;
+}
+
+#filter form div.filter_box:first-child{
+    margin-top: 18px;
+}
+
+
+
+#filter .filter_box .filter_name {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+#filter .filter_box label {
+    border: none;
+    display: block;
+    width : 100%;
+    height : 37px;
+    border-radius: 2px;
+    margin-top:4px;
+    background-color: white;
+    position: relative;
+}
+
+#filter .filter_box input[type=checkbox] {
+    overflow: hidden;
+    position: absolute;
+    left : -1000px;
+    width : 1px;
+    height : 1px;
+}
+
+#filter form div:nth-child(8) input[type=checkbox] + label{
+    background : url('../payIn_images/filter_radio_icon.JPG') no-repeat;
+    background-size : 16px;
+    background-position: 1px 2px;
+    padding-left: 24px;  
+
+}
+
+#filter form div:nth-child(8) input[type=checkbox]:checked + label{
+    background-image : url('../payIn_images/filter_radio_selected_icon.JPG'); 
+}
+
+#filter form div:nth-child(8){
+    position: relative;
+    margin-top: 15px;
+    height: 25px;
+}
+
+#filter .filter_box #business_img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right : 0px;
+    top : 2px;
+    background: url('../payIn_images/about_icon.JPG') no-repeat;
+    background-size: 15px;
+}
+
+#filter form div:nth-child(7) label + label {
+    width: 49%;
+    display: inline-block;
+    margin-top: 5px;
+    
+}
+
+#filter .filter_box label .filter_img_left {
+    display: inline-block;
+    width: 30px;
+    height:30px;
+    background: url('../payIn_images/calendar.png') no-repeat;
+    background-size : 19px 19px;
+    background-position: 8px 8px;
+}
+
+#filter form div.filter_box:first-child .filter_img_left {
+    background: url('../payIn_images/search_icon.JPG') no-repeat;
+    background-size : 20px 20px;
+    background-position: 8px 8px;
+}
+
+/* input type = "date" label 방법*/
+#filter .filter_box input {
+    height: 32px;
+    position: absolute;
+    left: 35px;
+    top:2px;
+    border: none;
+    width: 75%;
+}
+
+.filter_null_warning {
+    display: none;
+    height: 35px;
+    border: 1px solid #FCBCBF;
+    border-radius: 3px;
+    background-color: #FFF0F0;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding-left: 35px;
+    padding-top: 10px;
+    letter-spacing: -0.04em;
+    position: relative;
+}
+
+.warning_sign {
+    width: 22px;
+    height : 22px;
+    background: url('../payIn_images/warning_sign.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    left : 7px;
+    top : 6px;
+}
+
+#filter .filter_box input:focus {
+    outline: none;
+}
+
+#filter form div.filter_box .filter_img_right {
+    width: 30px;
+    height:30px;
+    background: url('../payIn_images/calendar_down_icon.JPG') no-repeat;
+    background-size : 20px 20px;
+    background-position: 8px 8px;
+    position: absolute;
+    right: 4px;
+    top : 0px;
+}
+
+#filter .filter_box select{
+    border: none;
+    width: 95%;
+    height: 100%;
+}
+
+#filter form .submit_box{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+#filter form .submit_box input {
+    width: 100%;
+    border:none;
+    padding : 10px;
+    color : white;
+    font-size: 1.1em;
+    background-color: rgb(0, 113, 194);
+}
+
+#filter form .submit_box input:hover {
+    background-color : rgb(1, 92, 156);
+}
+
+#map{
+    height: 130px;
+    background: url('../payIn_images/map_img.JPG') no-repeat center;
+    background-size: cover;
+}
+
+#map #map_icon{
+    width: 90%;
+    height: 100%;
+    background: url('../payIn_images/map_icon.png') no-repeat center top;
+    background-size: 25%;
+    background-position-y: 15px;
+    margin: 0 auto;
+}
+
+#map #map_icon input {
+    width: 50%;
+    height: 35px;
+    border: none;
+    padding : 5px;
+    color : white;
+    font-size: 0.9em;
+    background-color: rgb(0, 113, 194);
+    margin : 30% 25%;
+}
+
+#map #map_icon input:hover {
+    background-color : rgb(1, 92, 156);
+}
+
+#left .left_table{
+    width: 100%;
+    background-color:  rgb(235, 243, 255);
+    margin-bottom : 10px;
+    padding: 0;
+    border-radius: 3px;
+    border : 1px solid rgb(235, 243, 255);
+}
+
+#left .left_table #left_table_title{
+    text-align: left;
+    font-size: 10px;
+    padding: 12px 8px 8px;
+    line-height: 1.9em;
+}
+
+#left .left_table #left_table_content{
+    background: white;
+}
+#left .left_table #left_table_content .table_content{
+    box-sizing: border-box;
+    width : 100%;
+    padding: 10px;
+    border-bottom: 1px solid rgb(235, 243, 255);
+    position: relative;
+}
+
+#left .left_table #left_table_content div.table_content:last-child{
+    border : none;
+}
+
+#left .left_table #left_table_content .table_content .transport{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../payIn_images/bus.png') no-repeat center;
+    background-size: 70%;
+}
+
+#left .left_table #left_table_content div.table_content:nth-child(2) .transport{
+    background-image: url('../payIn_images/parking.png');
+    background-size: 70%;
+}
+
+#left .left_table #left_table_content .table_content .transport_name{
+    font-size: 0.9em;
+    vertical-align: text-top;
+    position: absolute;
+    top :14px;
+    left : 35px;
+}
+
+#left .left_table #left_table_content .table_content .transport_time{
+    font-size: 0.7em;
+    vertical-align: text-top;
+    position: absolute;
+    right : 10px;
+    top :14px;
+}
+
+#others {
+    border: 1px solid  rgb(235, 243, 255);
+    background-color: rgb(250, 252, 255);
+    padding-top: 15px;
+    font-size: 0.8em;
+}
+
+#others span {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.btn_align {
+    margin : 0 auto;
+}
+
+#others .btn_align input {
+    width: 100%;
+    padding : 7px;
+    border : 1px solid rgb(0, 113, 194);
+    background: none;
+    color : rgb(0, 113, 194);
+    font-weight: bold;
+}
+
+#others .btn_align input:hover {
+    border : 1px solid rgb(212, 227, 248);
+    background: white;
+    color : black;
+    font-weight: bold;
+}
+
+/* right */
+
+#pagenavi {
+    width : 100%;
+    height : 40px;
+}
+
+
+#pagenavi .pagelist li {
+    box-sizing: border-box;
+    width: 20%;
+    background-color: rgb(235, 243, 255);
+    border-right: 1px solid white;
+    text-align: center;
+    padding : 13px 0;
+    font-size : 15px;
+    float : left;
+    border-bottom: 1px solid rgb(0, 113, 194);
+}
+
+#pagenavi .pagelist li a{
+    color : rgb(0, 113, 194);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+}
+
+#pagenavi .pagelist li a:hover{
+    color : #444;
+}
+
+
+#pagenavi .pagelist li:first-child, #pagenavi .pagelist li:last-child{
+    width: 30%;
+}
+
+#pagenavi .pagelist li:last-child{
+    border-right : none;
+}
+
+#corona {
+    margin-top: 5px;
+    box-sizing : border-box;
+    width: 100%;
+    height : 130px;
+    padding : 15px;
+    background-color: #FEFBF0;
+    border : 1px solid #FFE08B;
+    position: relative;
+}
+
+#corona #warning_img{
+    width: 23px;
+    height: 23px;
+    background: url('../payIn_images/warning_icon.png') no-repeat;
+    background-size: 100%;
+    display: inline-block;
+}
+
+#corona #warning {
+    position: absolute;
+    left : 50px;
+    top : 15px;
+    font-size: 0.9em;
+    line-height: 1.5;
+    padding-right : 15px;
+}
+
+#corona #warning + a {
+    position: absolute;
+    left : 50px;
+    top : 93px;
+    text-decoration: none;
+    font-size: 0.9em;
+    color : rgb(0, 113, 194);
+    font-weight: bold;
+}
+
+#hotel {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 5px;
+
+    background-color: white;
+}
+
+#hotel_info{
+    box-sizing: border-box;
+    padding-top: 18px;
+    width: 100%;
+    
+    position: relative;
+}
+
+#hotel_name, #hotel_name_eng{
+    margin-bottom: 8px;
+}
+
+#hotel_info #hotel_location #location_img{
+    width: 23px;
+    height : 23px;
+    background: url('../payIn_images/map_icon.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-block;
+}
+
+#hotel_info #hotel_location #location {
+    font-size: 0.8em;
+    vertical-align: text-top;
+}
+#hotel_info #hotel_location #location .link_txt{
+    padding-left: 5px;
+    font-weight: bold;
+    color : rgb(0, 113, 194);
+    text-decoration: none;
+}
+
+.btn_typical{
+    border : none;
+    border-radius: 3px;
+    background-color : rgb(0, 113, 194);
+    color : white;
+    padding : 8px;
+    width : 90px;
+}
+
+.btn_typical:hover{
+    background-color : rgb(1, 92, 156);
+    outline: none;
+}
+
+#hotel_info .tt {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+}
+
+
+#visual {
+    margin-top: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+    background-color: white
+}
+
+#visual #back_img{
+    width: 100%;
+    height: 400px;
+    background-color : black;
+    background-size: cover;
+    position: relative;
+}
+
+#main_img {
+    box-sizing: border-box;
+    width: 75%;
+    height : 400px;
+    position: absolute;
+    left : 100px;
+}
+
+#prev_img_btn {
+    width: 50px;
+    height: 60px;
+    background: url('../payIn_images/arrow_left.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 170px;
+}
+
+#next_img_btn {
+    width: 50px;
+    height: 60px;
+    background: url('../payIn_images/arrow_right.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    right: 0px;
+    bottom: 170px;
+}
+
+#other_img {
+	display : table;
+    margin: 2px auto;
+}
+
+#other_img .other_img_list .img_list{
+    box-sizing: border-box;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 3px;
+}
+
+
+#main_img img, .img_list img{
+	width : 100%;
+	height : 100%;
+}
+
+
+#other_img .other_img_list li:first-child {
+    border : 4px solid rgb(0, 113, 194);
+}
+
+#available_room{
+    margin-top: 10px;
+}
+
+#user_info {
+    margin-top: 15px;
+    border: 1px solid lightgrey;
+    padding : 30px;
+    position: relative;
+}
+
+#user_info #user_info_list li {
+    float : left;
+    width: 30%;
+}
+
+#user_info #user_info_list li:first-child {
+    float : left;
+    width: 25%;
+}
+
+#user_info #user_info_list li:nth-child(2) {
+    float : left;
+    width: 33%;
+    border-left: 1px solid lightgrey;
+    padding-left: 20px;
+}
+
+#user_info #user_info_list li span{
+    display: block;
+    letter-spacing: 0.01em;
+}
+
+#user_info #user_info_list li .user_info_title {
+    font-size : 0.9em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#user_info #user_info_list li .user_info_content {
+    font-size : 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color :rgb(0, 113, 194);
+}
+
+#user_info #user_info_list li .user_info_option {
+    font-size : 0.9em;
+    color : grey;
+}
+
+#user_info .btn_typical  {
+    position: absolute;
+    right: 30px;
+    top : 30px;
+}
+
+#room_info #room_info_list {
+    margin-top : 10px;
+    position: relative;
+}
+
+#room_info #room_info_list #room_info_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#room_info_table tr,  #room_info_table td, #room_info_table th {
+    border: 1px solid #57B8FF;
+    border-right: none;
+}
+#room_info_table th {
+    padding : 8px;
+    text-align: left;
+    color: white;
+    font-size : 0.8em;
+    letter-spacing: 0.01em;
+    background-color: #4C76B2;
+}
+
+#room_info_table td {
+    padding : 8px 3px;
+    text-align: left;
+    font-size : 0.8em;
+    letter-spacing: 0.01em;
+}
+
+#room_info_table th:first-child {  
+    width: 30%;
+}
+#room_info_table th:nth-child(2) { 
+    width: 8%;
+}
+#room_info_table th:nth-child(3) { 
+    width: 13%;
+    background-color: #003580;
+    text-align: center;
+}
+#room_info_table th:nth-child(4) { 
+    width: 17%;
+}
+#room_info_table th:nth-child(5) { 
+    width: 10%;
+}
+#room_info_table th:nth-child(6) { 
+    width: 22%;
+}
+
+#room_info_table tr .room_type{
+    border-left : 1px solid white;
+}
+
+
+
+
+#room_info #room_info_table .room_name {
+    font-weight: bold;
+    text-decoration: underline;
+    color : #4C76B2;
+}
+
+#room_info #room_info_table .bed_unselectable {
+    margin: 5px 0;
+    background-color: #FFF8F0;
+    letter-spacing: 0;
+    font-size: 12px;
+    padding : 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#room_info_table .room_spec {
+    box-sizing: border-box;
+    width : 100%;
+    padding : 0 2px;
+    margin-bottom: 10px;
+}
+
+#room_info_table .room_spec .room_spec_list li {
+    float: left;
+    color : green;
+    font-size : 0.9em;
+    margin-bottom: 5px;
+    margin-right: 15px;
+}
+
+#room_info_table .room_type .per_fee {
+    display: inline-block;
+    font-size : 0.9em;
+    margin-top : 4px;
+    margin-bottom: 8px;
+}
+
+#room_info_table .room_people {
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+#room_info_table .room_people .people_pic {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url('../payIn_images/person_icon.png') no-repeat;
+    background-size: contain;
+}
+
+#room_info_table td {
+    vertical-align: top;
+    padding-left: 5px;
+}
+            
+#room_info_table .room_price .today_price {
+    display: block;
+    font-size: 16px;
+}
+
+#room_info_table .room_price .price_info {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+#room_info_table .room_option .option_list {
+    margin-bottom: 55px;
+    padding-left: 15px;
+}
+
+#room_info_table .room_option .option_list li{
+    list-style: outside;
+    margin-bottom: 5px;
+    font-size: 11px;
+    line-height: 1.2;
+    padding-right: 2px;
+}
+
+#room_info_table .room_option .option_list .good_option{
+    font-weight: bold;
+    color : green;
+}
+
+#room_info_table .room_option .option_list + a {
+    color: #4C76B2;
+}
+
+#room_info_table select{
+    width : 50px;
+    font-size: 0.9em;
+    padding:2px;
+}
+
+.list_line {
+    display: block;
+    margin: 2px 0 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+#room_info #room_info_table .bed_selectable {
+    margin: 7px 0;
+    background-color: rgb(235, 243, 255);
+    letter-spacing: 0;
+    font-size: 12px;
+    padding : 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#room_info #room_info_table .room_info_txt {
+    line-height: 1.2;
+    margin : 5px 0 10px;
+    word-break: keep-all;
+    letter-spacing: 0;
+}
+
+#room_info #room_info_table .bed_selectable div {
+    margin-top: 3px;
+}
+#room_info #room_info_table .bed_selectable div input[type=radio] {
+    margin-right : 5px;
+}
+
+#room_info #reservation_directly {
+    width: 175px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#room_info #reservation_directly .color_box{
+    width: 100%;
+    height: 40px;
+    background-color: #4C76B2;
+    margin-bottom: 5px;
+}
+
+#room_info #reservation_directly .btn_align {
+    width: 93%;
+    margin-bottom: 10px;
+}
+
+#room_info #reservation_directly .btn_typical {
+    width: 100%;
+}
+
+#room_info #reservation_directly ul {
+    padding-left: 20px;
+}
+#room_info #reservation_directly ul li {
+    list-style: outside;
+    font-size: 0.8em;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+#hotel div + strong {
+    display: block;
+    font-size: 0.8em;
+    padding : 20px 0 20px;
+}
+
+#house_rule #rule_table{
+    width: 98%;
+    font-size: 0.9em;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+      
+}
+#house_rule #rule_table td {
+    padding : 20px 5px 20px;
+}
+
+#house_rule #rule_table td.rule_title {
+    width: 23%;
+    vertical-align: top;
+}
+
+#house_rule #rule_table td.rule_title .rule_icon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: url('../payIn_images/calendar.png') no-repeat;
+    background-size: contain;
+    margin-right: 3px;
+}
+
+#house_rule h2 {
+    margin-top : 20px;
+    margin-bottom: 10px;
+}
+
+#house_rule .h2_info {
+    display: block;
+    font-size: 0.9em;
+    color : #555;
+    margin-bottom: 10px;
+}
+
+#house_rule #rule_table td.rule_title .rule_icon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: url('../payIn_images/calendar.png') no-repeat;
+    background-size: contain;
+    margin-right: 3px;
+}
+
+#house_rule #rule_table tr:nth-child(3) .rule_title .rule_icon, #house_rule #rule_table tr:nth-child(4) .rule_title .rule_icon {
+    background-image: url('../payIn_images/info_icon.png');
+}
+
+#house_rule #rule_table .rule_content p {
+    margin-bottom: 15px;
+}
+
+#house_rule #rule_table .rule_content #bed_rule{
+    border: 1px solid #BBB;
+    border-radius: 4px;
+    padding : 8px 0;
+    text-indent: 10px;
+}
+
+#house_rule #rule_table .rule_content #bed_rule {
+    margin-bottom: 15px;
+}
+
+
+#house_rule #rule_table .rule_content #bed_rule p{
+    border-bottom: 1px solid #BBB;
+    padding-bottom: 8px;
+}
+
+#house_rule #rule_table .rule_content #bed_rule p + ul li{
+    float: left;
+    width: 50%;
+    font-size : 12px;
+}
+
+#important_info {
+    margin-top: 30px;
+}
+
+#important_info h2 {
+    margin-bottom: 15px;
+}
+
+#important_info .left_box p {
+    padding: 3px;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+#important_info .left_box p:last-child {
+    margin-bottom: 20px;
+}
+
+
+
+#qna {
+    margin-top: 20px;
+    border : 1px solid rgb(235, 243, 255);
+    padding: 0;
+    margin-bottom: 50px;
+}
+#qna_table {
+    margin: 0;
+    border-collapse: collapse;
+}
+
+#qna #qna_table .qna_title{
+    padding : 25px;
+    width: 25%;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    background-color: rgb(235, 243, 255);
+    vertical-align: top;
+}
+
+#qna #qna_table .qna_list{
+    padding : 20px 20px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    border-bottom: 1px solid rgb(235, 243, 255);
+}
+
+#qna #qna_table .checkbox_btn_box{
+    position: relative;
+}
+
+#qna #qna_table .checkbox_btn_box p.question{
+    position: absolute;
+    top : 0px;
+}
+
+#qna #qna_table .qna_list input[type=checkbox] {
+    overflow: hidden;
+    position: absolute;
+    left : -1000px;
+    width : 1px;
+    height : 1px;
+}
+
+#qna #qna_table .qna_list input[type=checkbox] + label{
+    background : url('../payIn_images/arrow_down.png') no-repeat;
+    background-size : 3%;
+    background-position: right;
+    padding-left: 570px;
+}
+
+#qna #qna_table .qna_list input[type=checkbox]:checked + label{
+    background-image : url('../payIn_images/arrow_top.png'); 
+}
+
+#qna #qna_table .qna_list input[type=checkbox]+ label + div.hiding_answer{
+    display: none;
+    margin-top : 15px;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+#qna #qna_table .qna_list input[type=checkbox]:checked + label + div.hiding_answer{
+    display: block;
+}
+
+
+#qna #qna_table .answer{
+    margin-top: 30px;
+}
+
+#qna #qna_table p.answer + ul {
+    padding-top : 25px;
+    padding-left : 40px;
+}
+
+#qna #qna_table p.answer + ul li{
+    list-style: circle;
+    margin-bottom: 8px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+#payIn_step_header.step2 {
+    margin : 0 auto;
+    padding-bottom : 10px;
+    box-sizing: border-box;
+    width : 1100px;
+    
+}
+
+#payIn_step_header.step2 div.step{ 
+    display: inline-block;
+    width: 25px;
+    height : 25px;
+    margin : 10px;
+    background-color: #0071C2;
+    text-align: center;
+    border-radius: 13px;
+}
+
+#payIn_step_header.step2 div.step:first-child {
+    background-image: url('../payIn_images/step_CheckPoint.JPG');
+    background-size: 100%;
+}
+
+#payIn_step_header.step2 div.step span{ 
+    display : inline-block;
+    padding-top : 5px;
+    color : white;
+    font-size: 0.9em;
+}
+
+#payIn_step_header.step2 div.step:first-child span{ 
+    visibility: hidden;
+}
+
+
+#payIn_step_header.step2 .step_info {
+    font-weight: bold;
+    font-size : 14px;
+    letter-spacing: 0.01em;
+    margin-right: 10px;
+    color : #888;
+}
+
+#payIn_step_header.step2 span.step_info:last-child {
+    margin-right: 0px;
+}
+
+#payIn_step_header.step2 #second_step + span  {
+    color : #444;
+}
+
+
+#payIn_step_header.step2 .step_line {
+    width : 350px;
+    height: 2px;
+    display : inline-block;
+    background-color : #CCC;
+}
+
+.box_style {
+    background-color: white;
+    border: 1px solid rgb(186,212,247);
+    margin-bottom : 10px;
+    border-radius: 3px;
+}
+
+#user_reservation_info .user_info_list li {
+    float : left;
+    width: 30%;
+}
+
+#user_reservation_info .user_info_list li:first-child {
+    float : left;
+    width: 46%;
+    padding-right : 8px;
+}
+
+#user_reservation_info .user_info_list li:nth-child(2) {
+    float : left;
+    width: 40%;
+    border-left: 1px solid lightgrey;
+    padding-left: 10px;
+}
+
+#user_reservation_info .user_info_list li span{
+    display: block;
+}
+
+#user_reservation_info .user_info_list li .user_info_title {
+    margin-top: 3px;
+    font-size : 0.9em;
+    margin-bottom: 7px;
+}
+
+#user_reservation_info .user_info_list li .user_info_content {
+    font-size : 0.9em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 1.4;
+
+}
+
+#user_reservation_info .user_info_list li .user_info_option {
+    font-size : 0.9em;
+    color : grey;
+}
+
+.box_title {
+    letter-spacing: 0.01em;
+    font-weight: bold;
+    padding : 13px 8px;
+    background-color: rgb(235, 243, 255);
+    border-radius: 2%;
+}
+
+.box_style_line {
+    border-bottom: 1px solid rgb(186,212,247);
+}
+
+.box_content {
+    letter-spacing: 0.01em;
+    padding : 13px 8px;
+    background-color: none;
+    border-bottom: 1px solid rgb(186,212,247);
+}
+
+#left.step2{
+    width : 320px;
+    height : 100%;
+    float :left;
+    padding : 0 5px 0;
+    box-sizing: border-box;
+}
+
+#left.step3{
+    width : 320px;
+    height : 100%;
+    float :left;
+    padding : 0 5px 0;
+    box-sizing: border-box;
+}
+
+#right.step2 {
+    box-sizing : border-box;
+    margin-left : 15px;
+    width: 760px;
+    float: left;
+}
+
+
+#right.step3 {
+    box-sizing : border-box;
+    margin-left : 15px;
+    width: 760px;
+    float: left;
+}
+
+#user_date {
+    margin-bottom : 15px;
+}
+
+.link_txt{
+    color : rgb(0, 113, 194);
+    text-decoration: none;
+}
+
+#user_reservation_info .box_content .link_txt{
+    font-size: 0.9em;
+    letter-spacing: -0.01em;
+    color : rgb(0, 113, 194);
+    text-decoration: none;
+}
+
+#user_reservation_info .box_content .chosen_room {
+    font-weight: bold;
+    font-size: 0.9em;
+    letter-spacing: -0.01em;
+    margin-bottom : 7px;
+}
+
+#user_reservation_info .box_content .chosen_room_ment {
+    font-size: 0.9em;
+    line-height: 1.2;
+    margin-bottom : 10px;
+}
+
+#user_reservation_info .box_content .chosen_room_ment .chosen_room_name {
+    display : inline-block;
+    width:100%;
+    padding-bottom : 3px;
+    padding-top : 2px;
+}
+
+#user_reservation_info .box_content p.chosen_room_ment + .link_txt {
+    font-size: 0.7em;
+    line-height: 1.2;
+    margin-bottom : 10px;
+}
+
+#left div.box_content:last-child {
+    border-bottom: none;
+}
+
+.small_txt {
+    font-size : 0.7em;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+
+#about_fee .box_title {
+    font-weight: normal;
+    padding-top: 10px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+#about_fee .box_title #total_price_title {
+    font-size : 20px;
+    padding-bottom: 5px;
+}
+
+#about_fee .box_title #total_price {
+    font-size : 20px;
+    position: absolute;
+    right: 10px;
+    top : 10px;
+}
+
+#about_fee .box_title #local_people {
+    color : #666;
+    font-size: 14px;
+    padding : 5px 0;
+}
+
+#about_fee .box_title #local_price {
+    font-size : 16px;
+    position: absolute;
+    right: 10px;
+    top : 10px;
+}
+
+.additional_fee_info {
+    margin-top:3px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+#about_fee .box_content .additional_fee_info:last-child {
+    padding-bottom: 5px;
+}
+
+#about_fee .box_content div.additional_fee_info + div.additional_fee_info{
+ 
+}
+
+.additional_fee_info .fee_title {
+    font-size: 14px;
+}
+
+.additional_fee_info .fee_price {
+    font-size: 14px;
+    position: absolute;
+    right: 4px;
+    top: -1px;
+}
+
+.green_txt{
+    color : green;
+}
+
+#cancle_fee .box_content .green_txt {
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+
+#cancle_fee .additional_fee_info .fee_title {
+    font-size: 13px;
+}
+
+#cancle_fee .additional_fee_info .fee_price {
+    font-size: 13px;
+    position: absolute;
+    right: 4px;
+    top: 0px;
+}
+
+#cancle_fee .box_content .additional_fee_info {
+    padding-bottom: 0px;
+}
+
+#cancle_fee .box_content div.additional_fee_info + div.additional_fee_info p{
+    padding-top: 10px;
+}
+
+#options .box_title {
+	line-height : 1.4;
+	font-size : 15px;
+}
+#options .box_content p.green_txt{
+    padding-bottom: 0px;
+    font-size: 14px;
+}
+
+#options .box_content p.green_txt + p{
+    padding-top : 10px;
+}
+
+
+#important_information .box_content .small_txt p {
+    font-size : 12px;
+    line-height: 1.5;
+    padding-bottom: 10px;
+}
+
+#hotel #hotel_img {
+    width : 200px;
+    height : 200px;
+    background: url('../payIn_images/hotel_img_1.jpg') no-repeat;
+    background-size: cover;
+    background-position: left;
+    margin: 10px 0;
+    float : left;
+    margin-right : 10px;
+}
+
+#hotel #hotel_img img{
+	width : 100%;
+	height : 100%;
+}
+
+#hotel #hotel_info #hotel_recomendation ul{
+    margin-top: 10px;
+
+}
+#hotel #hotel_info #hotel_recomendation ul li {
+    list-style: url('../payIn_images/check_bullet.png') inside;
+    margin-bottom: 15px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-indent: 5px;
+}
+
+#personal_info #payIn_step2_frm > h2:first-child {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1px;
+    margin-top: 20px;
+}
+
+#personal_info #personal_info_box.left_box {
+    margin-top : 10px;
+    padding : 30px 15px;
+}
+
+#personal_info #personal_info_box .info_input_box{
+    margin-bottom: 10px;
+}
+
+#personal_info #personal_info_box div.info_input_box:first-child .info_input_title {
+    padding-bottom: 10px;
+}
+
+.info_input_box .info_input_title {
+    font-size : 14px;
+    letter-spacing : 0.01em;
+    padding-bottom: 5px;
+}
+
+.info_input_box .info_input_title.require::after {
+    content: "*";
+    margin-left: 5px;
+    color : rgb(187, 8, 8);
+    font-weight: bold;
+}
+
+.info_input_box .info_input #user_trip_purpose {
+    padding-bottom: 40px;
+}
+
+.info_input_box .info_input #user_trip_purpose li{
+    float:left;
+    margin-left: 20px;
+    font-size: 15px;
+
+}
+
+.info_input_box .info_input #user_trip_purpose li input[type=radio]{
+    margin-right: 10px;
+}
+
+.info_input_box .info_input #user_trip_purpose li:first-child{
+    margin-left: 0px;
+}
+
+.info_input_box #user_name li {
+    float: left;
+}
+
+.info_input_box #user_name li:first-child {
+    width: 190px;
+}
+
+.info_input_box #user_name li input[type=text] {
+    padding : 8px 5px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+    width: 170px;
+    font-size : 14px;
+}
+
+
+/**/
+
+#personal_info .book_for_other{
+    display: none;
+}
+
+#personal_info .info_input_box .other_info li {
+    float: left;
+    margin-right : 10px;
+}
+
+#personal_info .info_input_box .other_info li input[type=text] {
+    padding : 8px 5px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+    width: 170px;
+    font-size : 14px;
+}
+
+#personal_info .info_input_box .other_info li:first-child input[type=text] {
+    width: 220px;
+}
+
+#personal_info .info_input_box .other_info li:last-child input[type=text] {
+    width: 280px;
+}
+
+#personal_info .info_input_box .other_info li:last-child .small_txt {
+    margin-top : 5px;
+    padding-left : 3px;
+    font-size: 12px;
+    color : #888;
+}
+
+
+#personal_info .info_input_box input[type=text] { /* 이거 */
+    padding : 8px 5px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+    width: 300px;
+    font-size : 14px;
+}
+
+#personal_info .info_input_box input[type=text] + span{
+    font-style: italic;
+    font-size: 15px;
+    margin-left: 40px;
+    word-spacing: 0.02em;
+}
+
+#personal_info_box div.info_input_box:nth-child(5) .info_input_title{
+    margin-top: 25px;
+}
+
+#personal_info_box div.info_input_box:nth-child(5) .info_input ul li{
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+#personal_info_box div.info_input_box:nth-child(5) .info_input ul li input[type=radio]{
+    margin-right : 10px;
+}
+
+#personal_info .guests_info {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid white;
+    border-bottom: none;
+    padding : 20px 10px;
+    position: relative;
+    margin-top : 30px;
+}
+
+#personal_info .guests_info p.guest_price {
+    position: absolute;
+    right : 10px;
+    top : 20px;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+}
+
+#personal_info .guests_info p.guest_price .days{
+    font-size: 12px;
+}
+
+
+#personal_info .guests_info .guests_info_align {
+    width: 70%;
+}
+
+
+#personal_info .guests_info .guests_info_align h3{
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+}
+
+#personal_info .guests_info .guests_info_align h3{
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+}
+
+#personal_info .guests_info .guests_info_align p.green_txt b {
+    font-size : 14px;
+    letter-spacing: 0.01em;
+}
+
+#personal_info .guests_info .guests_info_align p.green_txt {
+    margin-bottom: 8px;
+    letter-spacing: -0.05em;
+}
+
+#personal_info .guests_info .guests_info_align p.dotted_line b {
+    font-size : 14px;
+    letter-spacing: 0.01em;
+    border-bottom : 1px dotted #333;
+}
+
+#personal_info .guests_info .guests_info_align p.dotted_line {
+    margin-bottom: 10px;
+    letter-spacing: -0.05em;
+}
+
+
+
+#personal_info .guests_info .guests_info_align p.green_txt:nth-child(3) {
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: -0.05em;
+}
+
+#personal_info .guests_info .guests_info_align p .small_txt {
+    font-size: 12px;
+    border-bottom: 1px dotted green;
+}
+
+#personal_info .guests_info .guests_info_align .main_option {
+    margin-bottom: 20px;
+}
+
+#personal_info .guests_info .guests_info_align .main_option li{
+    float: left;
+    border : 1px solid rgb(151, 229, 156);
+    background-color: rgb(231, 253, 233);
+    font-size: 13px;
+    margin-right: 5px;
+    padding : 3px 5px 5px;
+    color: green;
+    letter-spacing: -0.05em;
+}
+
+
+#personal_info .guests_info .guests_info_align .main_option li div{
+    width: 10px;
+    height: 10px;
+    background: url('../payIn_images/check_bullet.png');
+    display: inline-block;
+    margin-right: 2px;
+}
+
+#personal_info .guests_info .guests_info_align .main_option li div{
+    width: 10px;
+    height: 10px;
+    background: url('../payIn_images/check_bullet.png');
+    display: inline-block;
+    margin-right: 2px;
+}
+
+#personal_info .guests_info .info_input_box select {
+    margin-left: 5px;
+    height : 35px;
+    padding : 0 2px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+    margin-bottom: 10px;
+}
+
+#personal_info .guests_info .info_input_box .prohibited {
+    display: inline-block;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+
+#personal_info .guests_info .info_input_box .prohibited .prohibited_list {
+    display: inline-block;
+   
+}
+
+#personal_info .guests_info .info_input_box .prohibited .prohibited_list  li {
+    float: left;
+    font-size: 14px;
+}
+
+#personal_info .guests_info .info_input_box .prohibited .prohibited_list .prohibited_list_ment{
+    vertical-align: text-top;
+    margin-left: 5px;
+}
+
+#personal_info .guests_info .info_input_box .prohibited .prohibited_list .prohibited_list_img{
+    width: 20px;
+    height: 20px;
+    background: url('../payIn_images/no-smoking.png') no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+#personal_info .guests_info .info_input_box .prohibited .prohibited_list .prohibited_list_img{
+    width: 20px;
+    height: 20px;
+    background: url('../payIn_images/no-smoking.png') no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+#personal_info .guests_info .info_input_box .info_input input {
+    margin-top: 5px;
+}
+
+#personal_info .guests_info div:last-child {
+    margin-bottom: 0;
+}
+
+#personal_info .line {
+    color : red;
+}
+#personal_info .guest_btn {
+    margin:0;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid white;
+    border-top: 1px solid #CCC;
+    padding : 20px 10px;
+    position: relative;
+}
+
+#personal_info input[type=checkbox]:disabled {
+    overflow: hidden;
+    position: absolute;
+    left : -1000px;
+    width : 1px;
+    height : 1px;
+}
+
+#personal_info .guest_info .hdn_btn {
+   visibility : hidden;
+}
+
+#personal_info input[type=checkbox]:disabled + label{
+    background : url('../payIn_images/check.png') no-repeat;
+    background-size : 13px;
+    padding-left: 24px;
+    display: inline-block;
+}
+
+#personal_info .guest_btn .including_msg{
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding : 5px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    border-radius: 2px;
+    vertical-align: top;
+    margin: -1px 0;
+}
+
+#personal_info .guest_btn .including_ment{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#personal_info .guest_btn input[type=checkbox]{
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+#personal_info .not_including{
+    display: inline-block;
+}
+
+#personal_info .guest_btn .info_input_title{
+    font-size : 15px;
+    letter-spacing: -0.01em;
+}
+
+#personal_info .guest_btn .small_txt{
+    margin-top: 10px;
+}
+
+#personal_info .guest_btn:hover{
+    background-color: white;
+}
+
+#personal_info #personal_info_box{
+    position: relative;
+}
+
+#personal_info .almost_msg {
+    position: absolute;
+    right: 10px;
+    top : 10px;
+    padding : 5px 10px;
+    width : 250px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    background-color: rgb(201, 235, 203);
+    border-radius: 5px;
+}
+
+#personal_info .almost_msg b{
+    font-weight: bold;
+    color : rgb(187, 8, 8);
+}
+
+#ask_hotel h2 {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+#ask_hotel #ask_hotel_box{
+    padding: 25px 15px;
+}
+
+#ask_hotel #ask_hotel_box p{
+    margin-bottom: 15px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+#ask_hotel #ask_hotel_box p:last-child{
+    margin-bottom: 0px;
+}
+
+#ask_hotel #ask_hotel_box p textarea{
+    width: 50%;
+    height: 100px;
+    margin: 10px 0;
+    resize: vertical;
+}
+#ask_hotel #ask_hotel_box p textarea:focus{
+    width: 100%;
+    outline : 2px solid #0071C2;
+}
+
+#ask_hotel #ask_hotel_box .bold_title{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#ask_hotel #ask_hotel_box p select {
+    margin-left: 5px;
+    height : 35px;
+    padding : 0 2px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+}
+
+#to_next_step {
+    margin-top: 40px;
+    position: relative;
+}
+
+#to_next_step p{
+    text-align: right;
+    margin-bottom: 13px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+#to_next_step .lowest_aprooved{
+    display: inline-block;
+    position: absolute;
+    right: 190px;
+    top: 18px;
+    background: url('../payIn_images/tag.png') no-repeat;
+    background-size: contain;
+    padding-left: 25px;
+}
+#to_next_step p input[type=submit]{
+    margin-left: 10px;
+    width: 170px;
+    font-size: 16px;
+    padding: 15px;
+}
+
+#to_next_step p:last-child{
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 30px;
+}
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+#payIn_step_header.step3 {
+    margin : 0 auto;
+    padding-bottom : 10px;
+    box-sizing: border-box;
+    width : 1100px;
+    
+}
+
+#payIn_step_header.step3 div.step{ 
+    display: inline-block;
+    width: 25px;
+    height : 25px;
+    margin : 10px;
+    background-image: url('../payIn_images/step_CheckPoint.JPG');
+    background-size: 100%;
+    text-align: center;
+    border-radius: 13px;
+}
+
+#payIn_step_header.step3 #third_step {
+    background: #0071C2;
+}
+
+#payIn_step_header.step3 div.step span{ 
+    display : inline-block;
+    padding-top : 5px;
+    color : white;
+    font-size: 0.9em;
+}
+
+#payIn_step_header.step3 div.step:first-child span,
+#payIn_step_header.step3 #second_step span{ 
+    visibility: hidden;
+}
+
+
+#payIn_step_header.step3 .step_info {
+    font-weight: bold;
+    font-size : 14px;
+    letter-spacing: 0.01em;
+    margin-right: 10px;
+    color : #888;
+}
+
+#payIn_step_header.step3 span.step_info:last-child {
+    margin-right: 0px;
+}
+
+#payIn_step_header.step3 #third_step + span  {
+    color : #444;
+}
+
+
+#payIn_step_header.step3 .step_line {
+    width : 350px;
+    height: 2px;
+    display : inline-block;
+    background-color : #CCC;
+}
+
+#international_info #international_info_box {
+    position: relative;
+    padding-top: 80px;
+}
+
+
+
+#international_info h2:first-child {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+#promo_code h2:first-child {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+#international_info .almost_msg {
+    position: absolute;
+    right: 10px;
+    top : 10px;
+    padding : 5px 10px;
+    width : 350px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    background-color: rgb(201, 235, 203);
+    border-radius: 5px;
+}
+
+#international_info #green_box_alert {
+    padding : 5px 5px;
+    width : 263px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    background-color: rgb(201, 235, 203);
+    border-radius: 3px;
+}
+
+
+#international_info .almost_msg b{
+    font-weight: bold;
+    color : rgb(187, 8, 8);
+}
+
+#international_info .info_input_box{
+    margin-bottom: 12px;
+}
+
+#international_info .info_input_box input[type=text]{
+    width: 200px;
+    height : 30px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+}
+
+#international_info .info_input_box select{
+    width: 250px;
+    height : 35px;
+    padding : 0 2px;
+    border-radius: 3px;
+    border: 1px solid #AAA;
+    margin-bottom: 10px;
+}
+
+#international_info .guest_btn {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#international_info .guest_btn .not_including{
+    display: inline-block;
+    vertical-align : top;
+    margin-left: 10px;
+}
+
+#international_info .guest_btn .not_including p{
+    margin-bottom: 8px;
+}
+
+#international_info .guest_btn .not_including .small_txt{
+    font-size: 12px;
+}
+
+#international_info .guest_btn .not_including p:first-child{
+    font-size: 15px;
+    letter-spacing: -0.01em;
+}
+
+#international_info #user_info_re {
+    border: 1px solid #0071C2;
+    border-radius: 3px;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top:80px;
+    padding : 15px 10px 0px;
+}
+
+#international_info #user_info_re > div{
+    margin-bottom: 20px;
+ }
+#international_info #user_info_re > div:last-child{
+   margin-bottom: 0;
+}
+
+#international_info #user_info_re .info_input_content {
+    color: #666;
+    font-size: 14px;
+    margin-top: 4px;
+    letter-spacing: -0.01em;
+}
+
+#international_info #user_info_re > a{
+    position: absolute;
+    right: 15px;
+    top : 10px;
+ }
+
+#promo_code_box {
+    padding : 25px 13px 30px;
+}
+
+#promo_code_box > p {
+    padding : 0px 0px 7px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+#promo_code_box .info_input_box .info_input input[type=text] {
+    width: 280px;
+    margin-right: 5px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #AAA;
+}
+
+#promo_code_box .info_input_box .info_input input[type=button] {
+    width: 60px;
+    margin-right: 5px;
+}
+
+
+
+#to_next_step.step3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+#to_next_step.step3 p{
+    text-align: left;
+    padding: 0 20px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    vertical-align: top;
+    line-height: 1.3;
+}
+
+#to_next_step.step3 p input[type=checkbox]{
+    margin-right: 5px;
+}
+
+#to_next_step.step3 .link_txt {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#to_next_step.step3 .right_align p{
+    padding-top: 10px;
+    text-align: right;
+}
+
+#to_next_step.step3 .right_align p input[type=button]{
+    border : 1px solid #4C76B2;
+    color : #4C76B2;
+    width: 160px;
+    background-color: white;
+    height: 50px;
+    font-size: 16px;
+    padding : 0px 0px;
+}
+
+#to_next_step.step3 .right_align .sub_btn{
+    display: inline-block;
+}
+
+#to_next_step.step3 .right_align p input[type=submit]{
+    width: 130px;
+    height: 50px;
+    font-size: 16px;
+    padding : 0px 0px;
+    text-indent: 25px;
+    
+}
+
+#to_next_step.step3 .right_align #submit_step3_img{
+    width : 22px;
+    height : 22px;
+    position: absolute;
+    right : 113px;
+    top : 92px;
+    background : url('../payIn_images/padlock.png') no-repeat;
+    background-size : contain;
+}
+
+#to_next_step.step3 .right_align p{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+#payment_way #no_card {
+    width: 20px;
+    height : 20px;
+    background: url('../payIn_images/question.png');
+    background-size: contain;
+    display: inline-block;
+    position: absolute;
+    top: -1px;
+    right: 106px;
+}
+
+#content {
+    width: 800px;
+    margin: 0 auto;
+    padding : 40px 0px;
+}
+
+#content #success_img{
+    width: 100%;
+    height: 350px;
+    background: url('../payIn_images/success.jpg') no-repeat;
+    background-size: contain;
+    margin-bottom: 40px;
+}
+
+#content .main_msg p {
+    margin-bottom: 10px;
+    letter-spacing: -0.05em;
+    text-align: center;
+}
+
+
+#content .main_msg p b{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+#content .btn_box {
+    width: 80%;
+    margin: 0 auto 50px;
+    position: relative;
+}
+
+#content .btn_box input[type=button]{
+    width: 100%;
+    font-size: 20px;
+    margin-top: 10px;
+    padding : 15px;
+    letter-spacing: -0.01em;
+    font-weight: bold;
+    text-indent: 40px;
+}
+
+#content .btn_box .btn_arrow{
+    width : 26px;
+    height : 26px;
+    background: url('../payIn_images/home.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    left : 190px;
+    top : 25px;
+}
+
+
+#content.failure #success_img{
+    width: 100%;
+    height: 350px;
+    background: url('../payIn_images/failure.jpg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 30px;
+}
+
+#content.failure .btn_box .btn_arrow{
+    width : 40px;
+    height : 40px;
+    background: url('../payIn_images/arrow_back.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    left : 185px;
+    top : 19px;
+}
+
+#content .btn_box.fail_btn input.btn_typical{
+    background-color: rgb(175, 52, 52);
+}
+
+.ui-tooltip {
+    padding: 10px 10px;
+    color: blue;
+    border-radius: 20px;
+    box-shadow: 0 0 7px green;
+    font-size : 12px;
+    
+  }
+  
+
+  .arrow_box {
+    display: none;
+	position: relative;
+	background: #FFEBEB;
+    border: 3px solid #B70000;
+    margin : 20px 2px 0px -1px;
+    font-size: 12px;
+    padding : 10px;
+    color : #B70000;
+    font-weight: bold;
+}
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(255, 235, 235, 0);
+	border-right-color: #FFEBEB;
+	border-width: 8px;
+	margin-top: -8px;
+}
+.arrow_box:before {
+	border-color: rgba(183, 0, 0, 0);
+	border-right-color: #B70000;
+	border-width: 12px;
+	margin-top: -12px;
+}
+
+.tt { position: relative; } 
+.tt .tt-text { 
+    visibility: hidden; 
+    width: 150px;
+    background-color:rgba(0, 0, 0, 0.74);
+    color: white;
+    text-align: center; 
+    border-radius: 2px;
+    font-size: 12px;
+    letter-spacing: -0.05em; 
+    padding: 8px 8px; 
+    position: absolute; 
+    z-index: 1; 
+    top: 110%;     
+    left: 60%; 
+    margin-left: -100px;
+} 
+
+
+#lowest_price_tt { position: relative; } 
+#lowest_price_tt #lowest_price_tt-text { 
+    visibility: hidden; 
+    width: 300px;
+    background-color:white;
+    color: black;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: -0.05em; 
+    padding: 20px 20px; 
+    position: absolute; 
+    z-index: 1; 
+    top : 30px;    
+    left: 130%; 
+    margin-left: -100px;
+    line-height: 1.2em;
+    box-shadow: 1px 1px 3px #CCC;
+} 
+#lowest_price_tt #lowest_price_tt-text p:first-child{ 
+    font-size: 13px;
+    color : green;
+    margin-bottom: 10px;
+} 
+#lowest_price_tt #lowest_price_tt-text img{ 
+    width : 25px;
+    height : 25px;
+    margin : 0px 10px 10px 0px;
+    float: left;
+
+} 
+#lowest_price_tt:hover #lowest_price_tt-text{
+    visibility: visible;
+}
+
+#reservation_directly #current_room {
+	display : none;
+	margin : 5px 0;
+	font-size : 13px;
+	padding : 5px;
+}
+
+#reservation_directly #current_room p{
+	margin-bottom : 10px;
+}
+
+#reservation_directly #current_room .current_room_num{
+	letter-spacing : 0.01em;
+}
+
+#reservation_directly #current_room .current_room_price{
+	font-size : 19px;	
+	letter-spacing : 0.01em;
+}
+
+#reservation_directly #current_room .current_room_tax{
+	margin-bottom : 5px;
+	font-size : 12px;
+	letter-spacing : -0.05em;
+	color : #777;
+}
+
+footer{
+	margin-top : 200px;
+}
+
+#content .main_msg .account_msg {
+	margin: 20px 0px;
+	font-weight : bold;
+	font-size : 20px;
+	color : #003300;
+}
+
+#promo_code #cou_list .cou_list_li {
+	margin-bottom : 10px;
+	padding : 5px 0;
+	position : relative;
+}
+
+#promo_code #cou_list .cou_list_li input[type=radio]:checked + span{
+	font-weight : bold;
+}
+
+
+
+#promo_code #cou_list .cou_list_li:last-child {
+	margin-bottom : 0px;
+}
+
+#promo_code #cou_list .cou_list_li .cou_list_name{
+	font-size : 17px;
+	padding-right : 7px;
+}
+
+#promo_code #cou_list .cou_list_li .cou_list_date{
+	position : absolute;
+	top: 7px;
+	color : #666;
+}
+
+#promo_code .cou_list_desc {
+	line-height : 1.5;
+	margin-top: 20px;
+	margin-bottom : 0px;
+	padding-left : 3px;
+}
+
+
+#promo_code #cou_list .cou_list_li span.disabled_coupon {
+	color : #ccc;
+	font-weight : bold;
+}
+
+
+#promo_code .step3_price_notice p {
+	margin-bottom : 10px;
+	font-size : 17px;
+}
+#promo_code .step3_price_notice {
+	margin-top : 30px;
+	margin-bottom : 5px;
+}
+
+#promo_code p:last-child {
+	font-size : 20px;
+	font-weight : bold;
+}

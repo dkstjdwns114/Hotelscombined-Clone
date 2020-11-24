@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Customer">
+	<select id="login" parameterType="map" resultType="map">
+		SELECT u_idx, u_name FROM tb_customer WHERE u_id=#{u_id} AND u_pw=password(#{u_pw})
+	</select>
+	<select id="idCheck" parameterType="string" resultType="int">
+		SELECT COUNT(u_idx) from tb_customer WHERE u_id=#{u_id}
+	</select>
+	<select id="nameCheck" parameterType="string" resultType="int">
+		SELECT COUNT(u_idx) from tb_customer WHERE u_name=#{u_name}
+	</select>
+	<insert id="join" parameterType="map">
+		INSERT INTO tb_customer (u_id, u_pw, u_name, u_nickname, u_type, u_hp, u_emailagree) 
+		VALUES(#{u_id}, PASSWORD(#{u_pw}), #{u_name}, #{u_nickname}, #{u_type}, #{u_hp}, #{u_emailagree})
+	</insert>
+	<select id="pwCheck" parameterType="map" resultType="int">
+		SELECT count(u_idx) FROM tb_customer WHERE u_idx = #{u_idx} and u_pw = PASSWORD(#{u_pw})
+	</select>
+	
+	<update id="edit" parameterType="map">
+		UPDATE tb_customer SET u_nickname = #{u_nickname}, u_hp = #{u_hp}, u_emailagree = #{u_emailagree}  WHERE u_idx = #{u_idx}
+	</update>
+	<select id="info" parameterType="int" resultType="map">
+		SELECT u_id, u_pw, u_name, u_nickname, u_hp, u_emailagree FROM tb_customer WHERE u_idx = #{u_idx}
+	</select>
+</mapper>

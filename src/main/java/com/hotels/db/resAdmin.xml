@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ResAdmin">
+	<resultMap type="com.model.ResAdminDTO" id="resAdminDTO">
+		<result property="resIdx" column="res_idx"/>
+		<result property="resPurpose" column="res_purpose"/>
+		<result property="resLastname" column="res_last_name"/>
+		<result property="resFirstname" column="res_first_name"/>
+		<result property="resEmail" column="res_email"/>
+		<result property="resGuest" column="res_guest"/>
+		<result property="resGuestname" column="res_guest_name"/>
+		<result property="resGuestemail" column="res_guest_email"/>
+		<result property="resNation" column="res_nation"/>
+		<result property="resPh" column="res_ph"/>
+		<result property="resUseridx" column="res_useridx"/>
+		<result property="resHotelidx" column="res_hotelidx"/>
+		<result property="resRoomName" column="res_roomName"/>
+		<result property="resCheckin" column="res_checkin"/>
+		<result property="resCheckout" column="res_checkout"/>
+		<result property="resPeople" column="res_people"/>
+		<result property="resPrice" column="res_price"/>
+		<result property="resBankName" column="res_bankName"/>
+		<result property="resAccount" column="res_account"/>
+		<result property="resPaytype" column="res_pay_type"/>
+		<result property="resPaystatus" column="res_pay_status"/>
+		<result property="resOkstatus" column="res_okstatus"/>
+		<result property="resOkdate" column="res_okdate"/>
+		<result property="uIdx" column="u_idx"/>
+		<result property="uId" column="u_id"/>
+		<result property="uPw" column="u_pw"/>
+		<result property="uNickname" column="u_nickname"/>
+		<result property="uType" column="u_type"/>
+		<result property="uRegdate" column="u_regdate"/>
+		<result property="uHp" column="u_hp"/>
+		<result property="uEmailagree" column="u_emailagree"/>
+		<result property="uName" column="u_name"/>
+		<result property="uMemo" column="u_adminmemo"/>
+	</resultMap>
+	<select id="resAdminList" parameterType="map" resultMap="resAdminDTO">
+		SELECT res_idx, res_last_name, res_first_name, res_email, res_ph, res_roomName, res_checkin, res_checkout, res_people, res_price, res_pay_type, res_pay_status, res_okstatus, res_okdate, res_bankName, res_account, 
+		u_id, u_type, u_hp, u_name
+		FROM tb_reservation INNER JOIN tb_customer ON tb_reservation.res_useridx = tb_customer.u_idx
+		<if test="opt_user == 'uid'">
+			WHERE u_id LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="opt_user == 'uname'">
+			WHERE res_last_name LIKE CONCAT('%',#{keyword},'%') OR
+			res_first_name LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="opt_user == 'uph'">
+			WHERE res_ph LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="opt_status != 'all'">
+			WHERE res_pay_status = #{opt_status}
+		</if>
+		ORDER BY res_idx DESC LIMIT #{startCnt}, #{perPageCnt};
+	</select>
+	<select id="cntAllRes" resultType="long">
+		SELECT COUNT(res_idx) FROM tb_reservation
+		<if test="searchOpt == 'id'">
+			WHERE u_id LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchOpt == 'name'">
+			WHERE u_name LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchOpt == 'hp'">
+			WHERE u_hp LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="opt_status != 'all'">
+			WHERE res_pay_status = #{opt_status}
+		</if>
+	</select>
+	<insert id="insertReservation" parameterType="map">
+		INSERT INTO tb_reservation (res_purpose, res_last_name, res_first_name, res_email, res_guest, res_guest_name, res_guest_email, res_rent_car, res_changeable, res_nation, res_ph, res_useridx, res_hotelidx, res_roomName, res_checkin, res_checkout, res_people, res_price)
+		VALUES (#{roomName}, #{cntPeople}, #{totalPrice}, '결제완료', #{payType}, #{userId}, #{userName}, #{userHp}, #{startDate}, #{endDate}) 
+	</insert>
+	<update id="updateStatus" parameterType="map">
+		UPDATE tb_reservation SET res_pay_status=#{status} WHERE res_idx = #{resIdx}
+	</update>
+	<select id="sumAllPay" resultType="int">
+		SELECT SUM(res_price) FROM tb_reservation
+	</select>
+</mapper>
