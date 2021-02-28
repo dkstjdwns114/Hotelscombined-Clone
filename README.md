@@ -1,4 +1,7 @@
 # Hotelscombined-Clone
+
+## 팀으로 진행한 프로젝트입니다.
+- 제가 맡은 파트는 로그인/회원가입, 마이페이지 파트입니다.
 ![1](https://user-images.githubusercontent.com/63338121/109335171-085a3a80-78a5-11eb-8fba-b40c03d1cf6b.png)
 ![2](https://user-images.githubusercontent.com/63338121/109335312-33448e80-78a5-11eb-837c-19a22e9db19c.png)
 ![3](https://user-images.githubusercontent.com/63338121/109335331-3c356000-78a5-11eb-8d66-12ffe5edf2eb.png)
